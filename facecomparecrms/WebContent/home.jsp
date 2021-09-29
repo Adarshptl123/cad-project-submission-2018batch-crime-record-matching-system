@@ -99,6 +99,7 @@ list-style-type: none;
     
         <ul>
             <li><a href="home.jsp">Home</a></li>
+		<li><a href="home.jsp">Home</a></li>
             <li><a href="about.jsp">About Us</a></li>
             <li><a href="FIRform_1.jsp">FIR</a></li>
             <li><a href="criminal_profile.jsp">Criminal's Profile</a></li>
