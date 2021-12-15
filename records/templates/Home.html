@@ -1,0 +1,173 @@
+<!-- templates/base.html -->
+{% load static %}
+
+<!dOCTYPE html>
+<html labg="en">
+<head>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="A Basic HTML5 Template">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
+  <meta property="og:description" content="A simple HTML5 Template for new projects.">
+  <meta property="og:image" content="image.png">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+     
+  <meta charset="utf-8">
+  <title>{% block title %}Crime record management system{% endblock %}</title>
+  <style>
+    label {
+    font-size: 1.5rem;
+    color: #1B7251;
+}
+    </style>
+</head>
+<body>
+  <main>
+      
+     
+        {% if user.is_authenticated %}
+        <p style="text-align: right;font-size: 1cm;">Hi {{ user.username }}!</p>
+
+        <!--Navigation bar-->
+        <!--If Logged in--><h1 style="text-align: center;font-family: 'Barlow Condensed', sans-serif;margin: 0.1rem 0 0.1rem 0;">Crime Record Matching System</h1>
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="about_us">About Us</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="criminal_form">Criminal Records</a>
+  </li>
+   <li class="nav-item"><a class="nav-link" href="testimg_form">Compare Image</a>
+   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="FIRform">FIR</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="criminal">View Criminals</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">CRMS</a>
+  </li>
+</ul>
+
+ </div>
+    </div>
+  </div>
+</nav>
+<!--if not logged in-->
+     {% else %}
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+      
+       <ul  class="nav nav-pills">
+        <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">You are not logged in</a>
+  </li>
+        <li class="nav-item">
+    <a class="nav-link" href="#">About Us</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Criminal Records</a>
+  </li>
+   <li class="nav-item"><a class="nav-link" href="#">Compare Image</a>
+   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">FIR</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">View Criminals</a>
+  </li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Log In</a></li>
+        <li class="nav-item">
+          </li>
+      </ul>
+   
+
+         
+      </div>
+    </div>
+  </div>
+</nav>
+   {% endif %}
+
+    {% block content %}
+    {% endblock %}
+<!--end of Navigation bar-->
+        
+            <!-- main content body-->
+
+<div class="card">
+  <div class="row g-0">
+    <div class="col-sm-6 col-md-8">
+   
+  <img src="{% static '/images.jpg' %}" height="300px"  alt="...">
+  </div>
+   <div class="col-6 col-md-4">
+    <h5 class="card-title">Crime Record Matching System</h5>
+    <p class="card-text">File. Manage. View Records Online.</p>
+      <p class="card-text">Easy way. Time Saving and Efficient.</p>
+    </div>
+    </div>
+  </div>
+
+<footer class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md">
+      
+      <small class="d-block mb-3 text-muted">&copy; 2021–2022</small>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Features</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="link-secondary" href="#">Criminal Profiles</a></li>
+        <li><a class="link-secondary" href="#">Case Reports</a></li>
+        <li><a class="link-secondary" href="#">FIR</a></li>
+        <li><a class="link-secondary" href="#">Admin Accessbility</a></li>
+        <li><a class="link-secondary" href="#">Facial Comparison</a></li>
+        <li><a class="link-secondary" href="#">Database Accessbility</a></li>
+      </ul>
+    </div>
+   
+    <div class="col-6 col-md">
+      <h5>About</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="link-secondary" href="#">Team</a></li>
+        <li><a class="link-secondary" href="#">Locations</a></li>
+        <li><a class="link-secondary" href="#">Privacy</a></li>
+        <li><a class="link-secondary" href="#">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+   <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>
